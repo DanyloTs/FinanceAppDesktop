@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-from database.repo_interface import RepositoryInterface
+from repository_pattern.repo_interface import RepositoryInterface
 
 class CSVRepositoryBase(RepositoryInterface):
     def __init__(self, file_path, fieldnames):

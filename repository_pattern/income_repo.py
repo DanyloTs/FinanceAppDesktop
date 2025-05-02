@@ -1,6 +1,6 @@
-from repo_interface import RepositoryInterface
+from repository_pattern.repo_interface import RepositoryInterface
 from database.engine import SessionLocal
-from income_model import Income
+from database.income_model import Income
 
 class IncomeRepository(RepositoryInterface):
     def __init__(self) -> None:
@@ -14,10 +14,11 @@ class IncomeRepository(RepositoryInterface):
         return self.session.query(Income).all()
 
     def update(self, entity_id, **kwargs):
-        obj = self.session.query(Income).get_id(entity_id)
-        for key, value in kwargs.items:
+        obj = self.session.get(Income, entity_id)
+        for key, value in kwargs.items():
             setattr(obj, key, value)
         self.session.commit()
+
 
     def delete(self, entity_id):
         obj = self.session.query(Income).get(entity_id)

@@ -1,5 +1,5 @@
-from repo_interface import RepositoryInterface
-from expenses_model import Expense
+from repository_pattern.repo_interface import RepositoryInterface
+from database.expenses_model import Expense
 from database.engine import SessionLocal
 
 
@@ -15,7 +15,7 @@ class ExpenseRepository(RepositoryInterface):
         return self.session.query(Expense).all()
 
     def update(self, entity_id, **kwargs):
-        obj = self.session.query(Expense).get(entity_id)
+        obj = self.session.get(Expense, entity_id)
         for key, value in kwargs.items():
             setattr(obj, key, value)
         self.session.commit()

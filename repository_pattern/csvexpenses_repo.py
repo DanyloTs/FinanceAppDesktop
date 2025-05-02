@@ -1,4 +1,4 @@
-from database.csvbase_repo import CSVRepositoryBase
+from repository_pattern.csvbase_repo import CSVRepositoryBase
 
 class CSVExpenseRepository(CSVRepositoryBase):
     def __init__(self):
