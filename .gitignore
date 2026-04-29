@@ -1,0 +1,27 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment / secrets — NEVER commit real credentials
+.env
+.env.*
+!.env.example
+
+# Legacy secrets file (superseded by environment variables)
+database/env_var.py
+
+# Personal financial data
+csv/
+*.csv
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / editor artefacts
+.idea/
+.vscode/
+*.swp
+.DS_Store
